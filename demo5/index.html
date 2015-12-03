@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Directives</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="row" ng-controller="AppCtl">
+    <div class="col-md-4 col-md-offset-4">
+        <div my-for-each="list as item">{{item}}</div>
+    </div>
+
+</div>
+
+
+<script src="../angular.js"> </script>
+<script src="app.js"></script>
+<script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/md5.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Services/Factory/Providers</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="row" ng-controller="TaskCtl as ctl">
+
+    <div class="col-md-8 col-md-offset-2">
+
+        <div class="panel panel-default">
+  <div class="panel-heading">TODO </div>
+  <div class="panel-body">
+
+      <div class="list-group">
+          <div  class="list-group-item active">
+              <input ng-model="taskToAdd.name" type="text" placeholder="Task" class="form-control " style="width: 50%; display: inline;" >
+              Start with in
+              <input ng-model="taskToAdd.minutesToStart" type="number" class="form-control" style="width: 80px; display: inline;" >
+              minutes
+                  <button type="button" class="btn btn-success"  ng-click="ctl.addTask()">Add</button>
+          </div>
+          <div ng-repeat="task in tasks | orderBy:'minutesToStart'" class="list-group-item" ng-class="{'list-group-item-warning': task.reminded}" style="overflow: auto">
+              {{task.name}}
+
+              <button type="button" ng-click="ctl.removeTask(task)" class="btn btn-danger btn-sm pull-right"><i class="glyphicon glyphicon-remove-sign"></i></button>
+              <span ng-if="task.minutesToStart >= 0" class="label label-success"> Start with in {{task.minutesToStart}} minutes </span>
+              <span ng-if="task.minutesToStart < 0" class="label label-danger">{{task.minutesToStart}} Minutes past </span>
+              <div class="clearfix"></div>
+
+          </div>
+      </div>
+
+  </div>
+</div>
+
+    </div>
+
+</div>
+
+<script src="../angular.js"></script>
+<script src="../underscore.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

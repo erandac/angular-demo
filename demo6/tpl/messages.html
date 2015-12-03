@@ -1,0 +1,12 @@
+<div class="col-md-12">
+    <div style="min-height: 200px;">
+
+        <div class="list-group">
+            <a ui-sref="app_root.messages.detail({'id':message.id})" ng-repeat="message in messages" class="list-group-item">
+                {{message.subject}} <span class="badge">From: {{message.from}}</span>
+            </a>
+        </div>
+    </div>
+    <div ui-view="" style="border: solid red 3px; margin: 20px;">
+    </div>
+</div>
